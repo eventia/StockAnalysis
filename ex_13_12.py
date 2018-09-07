@@ -17,14 +17,14 @@
 #     print(ending_price)
 
 
-from pandas import Series, DataFrame
-
-raw_data = {'col0': [1, 2, 3, 4],
-            'col1': [10, 20, 30, 40],
-            'col2': [100, 200, 300, 400]}
-
-data = DataFrame(raw_data)
-print(data)
+# from pandas import Series, DataFrame
+#
+# raw_data = {'col0': [1, 2, 3, 4],
+#             'col1': [10, 20, 30, 40],
+#             'col2': [100, 200, 300, 400]}
+#
+# data = DataFrame(raw_data)
+# print(data)
 
 
 from pandas import Series, DataFrame
@@ -35,7 +35,25 @@ daeshin = {'open':  [11650, 11100, 11200, 11100, 11000],
            'close': [11900, 11600, 11000, 11100, 11050]}
 
 daeshin_day = DataFrame(daeshin)
-print(daeshin_day)
+print("daeshin_day = \n", daeshin_day)
 
 daeshin_day = DataFrame(daeshin, columns=['open', 'high', 'low', 'close'])
-print(daeshin_day)
+print("daeshin_day = \n", daeshin_day)
+
+close = daeshin_day['close']
+print("close = \n",close)
+
+date = ['16.02.29', '16.02.26', '16.02.25', '16.02.24', '16.02.23']
+daeshin_day = DataFrame(daeshin, columns=['open', 'high', 'low', 'close'], index=date)
+
+
+day_data = daeshin_day.ix['16.02.24']
+print("day_date = \n", day_data)
+print(type(day_data))
+
+close = daeshin_day['close']
+print(close)
+
+day_data = daeshin_day.ix['16.02.24']
+print(day_data)
+print(type(day_data))
