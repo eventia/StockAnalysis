@@ -25,7 +25,7 @@
 # app.exec_()
 
 
-# 버튼 예제
+# 버튼 팝업 예제
 import sys
 from PyQt5.QtWidgets import *
 
