@@ -25,7 +25,7 @@
 # app.exec_()
 
 
-
+# 버튼 예제
 import sys
 from PyQt5.QtWidgets import *
 
@@ -49,3 +49,4 @@ if __name__ == "__main__":
     mywindow = MyWindow()
     mywindow.show()
     app.exec_()
+
