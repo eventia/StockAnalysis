@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "data test "
+echo "data now : $(date +%Y%m%d) "
+echo "data now : $(date +%Y)년   $(date +%m)월 $(date +%d)일 "
+echo "Commit at $(date +%Y%m%d)-$(date +%H%M)"
+NowDate=`date`
+
+echo $NowDate
+
