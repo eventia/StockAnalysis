@@ -1,4 +1,9 @@
 #! /bin/bash
 git add --all .
-git commit -m "stk.demo"
+if [ "$1" = "" ]
+then 
+	git commit -m "stk.demo"
+else
+	git commit -m "$*"
+fi
 git push
