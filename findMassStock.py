@@ -24,16 +24,27 @@ def CheckVolumn(instStockChart, code):
 
 #    if(volumes[0] > averageVolume * 10):
     if(volumes[0] > averageVolume * 3):
-        return 1
+#        return 1
+        return (volumes[0]/ averageVolume, volumes[1]/ averageVolume, volumes[2] / averageVolume )
     else:
         return 0
 
 if __name__ == "__main__":
     instStockChart = win32com.client.Dispatch("CpSysDib.StockChart")
     instCpCodeMgr = win32com.client.Dispatch("CpUtil.CpCodeMgr")
+    instCpStockCode = win32com.client.Dispatch("CpUtil.CpStockCode")
     codeList = instCpCodeMgr.GetStockListByMarket(1)
     buyList = []
+
+    iter = 0
     for code in codeList:
-        if CheckVolumn(instStockChart, code) == 1:
+        checkVolumn = CheckVolumn(instStockChart, code)
+        if checkVolumn != 0:
+            iter = iter + 1
             buyList.append(code)
-            print(code)
+            print(code, end=", ")
+            stockIndex = instCpStockCode.CodeToIndex(code)
+            print(instCpStockCode.GetData(1, stockIndex), end=", ")
+            print(checkVolumn[0], checkVolumn[1], checkVolumn[2] )
+            if iter == 5:
+                break
